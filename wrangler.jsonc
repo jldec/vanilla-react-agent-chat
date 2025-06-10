@@ -1,29 +1,26 @@
 {
-  // Schema reference for wrangler configuration
   "$schema": "node_modules/wrangler/config-schema.json",
-
-  // Name of your worker
-  "name": "__change_me__",
-
-  // Entry point for your worker
+  "name": "minimal-alpha-5",
   "main": "src/worker.tsx",
-
-  // Compatibility settings
-  "compatibility_date": "2024-09-23",
+  "compatibility_date": "2025-05-08",
   "compatibility_flags": ["nodejs_compat"],
-
-  // Assets configuration
-  "assets": {
-    "binding": "ASSETS"
-  },
-
-  // Observability settings
   "observability": {
     "enabled": true
   },
-
-  // Environment variables
-  "vars": {
-    // Add your environment variables here
-  }
+  "ai": { "binding": "AI" },
+  "vars": {},
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "CHAT_AGENT",
+        "class_name": "ChatAgentDurableObject"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["ChatAgentDurableObject"]
+    }
+  ]
 }
