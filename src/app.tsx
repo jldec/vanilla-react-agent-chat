@@ -6,7 +6,7 @@ import type { Message } from '@ai-sdk/react'
 
 export default function App() {
   const agent = useAgent({
-    agent: 'chat-agent-namespace',
+    agent: 'chat-agent-do-namespace',
     name: 'chat-agent-id'
   })
 

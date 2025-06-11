@@ -1,5 +1,5 @@
 {
-  "name": "@redwoodjs/starter-minimal",
+  "name": "vanilla-react-agent-chat",
   "version": "1.0.0",
   "description": "A bare-bones RedwoodSDK starter",
   "main": "index.js",
@@ -9,8 +9,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "NODE_ENV=${NODE_ENV:-development} vite dev --force",
-    "build": "RWSDK_DEPLOY=1 vite build",
+    "dev": "vite dev --force",
+    "build": "vite build",
     "ship": "vite build && wrangler deploy",
     "types": "wrangler types --include-runtime false --strict-vars false"
   },
