@@ -1,12 +1,15 @@
 import { routeAgentRequest } from 'agents'
 
-export { Chat } from './app/agent-chat/ChatAgentDO'
+export { ChatAgentDO } from './ChatAgentDO'
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {
-    return (
-      (await routeAgentRequest(request, env)) ||
-      new Response("Not found", { status: 404 })
-    );
-  },
-} satisfies ExportedHandler<Env>;
+    const url = new URL(request.url)
+
+    if (url.pathname.startsWith(`/agents/${env.CHAT_AGENT_BINDING}/${env.CHAT_AGENT_ID}`)) {
+      return (await routeAgentRequest(request, env)) || Response.json({ msg: 'no agent here' }, { status: 404 })
+    }
+
+    return new Response('Not found', { status: 404 })
+  }
+} satisfies ExportedHandler<Env>

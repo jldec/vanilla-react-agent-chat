@@ -1,24 +1,19 @@
-import type { Message } from "@ai-sdk/react";
-import "./styles.css";
-import { useAgent } from "agents/react";
-import { useAgentChat } from "agents/ai-react";
+'use client'
+import './styles.css'
+import { useAgent } from 'agents/react'
+import { useAgentChat } from 'agents/ai-react'
+import type { Message } from '@ai-sdk/react'
 
-export default function Chat() {
+export default function App() {
   const agent = useAgent({
-    agent: "chat",
-    name: "agent",
-  });
+    agent: 'chat-agent-namespace',
+    name: 'chat-agent-id'
+  })
 
-  const {
-    messages,
-    input,
-    handleInputChange,
-    handleSubmit,
-    clearHistory,
-  } = useAgentChat({
+  const { messages, input, handleInputChange, handleSubmit, clearHistory } = useAgentChat({
     agent,
-    maxSteps: 5,
-  });
+    maxSteps: 5
+  })
 
   return (
     <>
@@ -35,13 +30,12 @@ export default function Chat() {
               <strong>{`${m.role}: `}</strong>
               {m.parts?.map((part, i) => {
                 switch (part.type) {
-                  case "text":
+                  case 'text':
                     return (
-                      // biome-ignore lint/suspicious/noArrayIndexKey: vibes
                       <div key={i} className="message-content">
                         {part.text}
                       </div>
-                    );
+                    )
                 }
               })}
               <br />
@@ -50,14 +44,9 @@ export default function Chat() {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <input
-            className="chat-input"
-            value={input}
-            placeholder="Say something..."
-            onChange={handleInputChange}
-          />
+          <input className="chat-input" value={input} placeholder="Say something..." onChange={handleInputChange} />
         </form>
       </div>
     </>
-  );
+  )
 }

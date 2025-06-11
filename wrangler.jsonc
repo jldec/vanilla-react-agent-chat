@@ -9,21 +9,21 @@
   },
   "ai": { "binding": "AI" },
   "vars": {
-    "CHAT_AGENT_PATH": "chat", // matches class-name, duplicated in Agent.tsx
-    "CHAT_AGENT_NAME": "agent", // duplicated in Agent.tsx
+    "CHAT_AGENT_BINDING": "chat-agent-namespace", // matches binding name, duplicated in App.tsx
+    "CHAT_AGENT_ID": "chat-agent-id", // duplicated in App.tsx
   },
   "durable_objects": {
     "bindings": [
       {
-        "name": "CHAT",
-        "class_name": "Chat"
+        "name": "CHAT_AGENT_NAMESPACE",
+        "class_name": "ChatAgentDO"
       }
     ]
   },
   "migrations": [
     {
       "tag": "v1",
-      "new_sqlite_classes": ["Chat"]
+      "new_sqlite_classes": ["ChatAgentDO"]
     }
   ]
 }
