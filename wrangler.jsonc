@@ -9,7 +9,7 @@
   },
   "ai": { "binding": "AI" },
   "vars": {
-    "CHAT_AGENT_NAMESPACE": "chat-agent-do-namespace", // matches binding name, duplicated in App.tsx
+    "CHAT_AGENT_NAMESPACE_KEBABCASE": "chat-agent-do-namespace", // matches binding name, duplicated in App.tsx
     "CHAT_AGENT_ID": "chat-agent-id", // duplicated in App.tsx
   },
   "durable_objects": {
