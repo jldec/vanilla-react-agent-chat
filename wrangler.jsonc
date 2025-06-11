@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "minimal-alpha-5",
-  "main": "src/worker.tsx",
+  "main": "src/server.ts",
   "compatibility_date": "2025-05-08",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
@@ -15,7 +15,7 @@
   "durable_objects": {
     "bindings": [
       {
-        "name": "CHAT_AGENT",
+        "name": "CHAT",
         "class_name": "Chat"
       }
     ]
