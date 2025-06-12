@@ -1,17 +1,15 @@
 {
   "name": "vanilla-react-agent-chat",
   "version": "1.0.0",
-  "description": "A bare-bones RedwoodSDK starter",
-  "main": "index.js",
   "type": "module",
-  "keywords": [],
-  "author": "",
   "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "vite dev --force",
     "build": "vite build",
+    "preview": "vite preview",
     "ship": "vite build && wrangler deploy",
+    "tail": "wrangler tail",
     "types": "wrangler types --include-runtime false --strict-vars false"
   },
   "dependencies": {
@@ -21,21 +19,20 @@
     "markdown-it": "^14.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "rwsdk": "0.1.0-alpha.8",
     "workers-ai-provider": "^0.6.1"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.5.1",
-    "@cloudflare/workers-types": "^4.20250610.0",
+    "@cloudflare/workers-types": "^4.20250612.0",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.1.7",
+    "@types/node": "^24.0.1",
+    "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.2",
     "chalk": "^5.4.1",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
-    "wrangler": "^4.19.1"
+    "wrangler": "^4.19.2"
   },
   "prettier": {
     "printWidth": 120,
