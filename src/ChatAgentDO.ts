@@ -1,10 +1,10 @@
 import { AIChatAgent } from 'agents/ai-chat-agent'
 import { createWorkersAI } from 'workers-ai-provider'
 import { env } from 'cloudflare:workers'
-import { streamText } from 'ai'
+import { streamText, type StreamTextOnFinishCallback, type ToolSet } from 'ai'
 
 export class ChatAgentDO extends AIChatAgent<Env> {
-  async onChatMessage() {
+  async onChatMessage(onFinishCallback: StreamTextOnFinishCallback<ToolSet>) {
     const workersai = createWorkersAI({ binding: env.AI })
 
     const stream = streamText({
@@ -16,7 +16,8 @@ export class ChatAgentDO extends AIChatAgent<Env> {
           content: 'You are a helpful and delightful assistant'
         },
         ...this.messages
-      ]
+      ],
+      onFinish: onFinishCallback
     })
     return stream.toDataStreamResponse()
   }
