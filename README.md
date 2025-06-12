@@ -3,7 +3,7 @@
 Cloudflare agents SDK multi-user chat using vanilla react (no RSC)
 
 ### todo
-- [ ] fix persistence of AI response messages
+- [x] fix persistence of AI response messages
 - [ ] add tailwind and match styles from [agents-chat](https://github.com/jldec/agents-chat)
 - [ ] add back tools and user approval prompts
 - [ ] run sub-agents and record sub-agent conversations
